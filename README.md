@@ -1,6 +1,7 @@
-# vuecli3_demo
+# vue-admin-demo
 
->使用vue-cli3创建工程模板，默认有vue-router、vuex，以及element-ui，适合用于后台管理系统开发！
+>本项目是在一个开源的系统剥离出来的一个简单的后台系统项目，
+>功能很简单，只包括用户、角色、权限的配置管理，最后加上一个文件的上传、下载、查询功能。
 ## Project setup
 ```
 npm install
