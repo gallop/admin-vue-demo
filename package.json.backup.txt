@@ -1,0 +1,142 @@
+"dependencies": {
+    "@tinymce/tinymce-vue": "3.0.1",
+    "core-js": "^3.6.4",
+    "element-ui": "^2.4.5",
+    "vue": "^2.6.11",
+    "vue-router": "^3.1.6",
+    "vuex": "^3.1.3",
+    "axios": "0.18.1",
+    "file-saver": "1.3.8",
+    "js-cookie": "2.2.0",
+    "normalize.css": "7.0.0",
+    "nprogress": "0.2.0",
+    "vue-count-to": "1.0.13",
+    "screenfull": "4.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.0.0",
+    "@babel/register": "7.0.0",
+    "@vue/cli-plugin-babel": "^4.3.0",
+    "@vue/cli-plugin-eslint": "^4.3.0",
+    "@vue/cli-service": "^4.3.0",
+    "@vue/eslint-config-standard": "^5.1.2",
+    "autoprefixer": "^9.5.1",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "23.6.0",
+    "babel-plugin-component": "^1.1.1",
+    "eslint": "^6.7.2",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-vue": "^6.2.2",
+    "html-webpack-plugin": "3.2.0",
+    "node-sass": "^4.9.0",
+    "sass": "^1.26.3",
+    "sass-loader": "^7.3.1",
+    "script-ext-html-webpack-plugin": "2.1.3",
+    "script-loader": "0.7.2",
+    "vue-cli-plugin-element": "^1.0.1",
+    "vue-template-compiler": "^2.6.11",
+    "svg-sprite-loader": "4.1.3",
+    "svgo": "1.2.0"
+  }
+
+-------------------
+
+"@vue/cli-plugin-unit-jest": "3.5.3",
+"@vue/test-utils": "1.0.0-beta.29",
+--------------------------------------------
+
+  css: {
+      // 项目package.json查看@vue/cli-service版本号进行配置
+      // v3用modules v4用requireModuleExtension
+      // modules: false,
+      // https://github.com/vuejs/vue-cli/blob/dev/docs/zh/guide/css.md#css-modules
+      // 如果你想去掉文件名中的 .module，可以设置 vue.config.js 中的 css.requireModuleExtension 为 false
+      requireModuleExtension: false,
+      // 将组件内的 CSS 提取到一个单独的 CSS 文件 (只用在生产环境中)
+      // 是否使用css分离插件 ExtractTextPlugin
+      extract: true, // Default: 生产环境下是 true，开发环境下是 false
+      // 开启 CSS source maps?
+      sourceMap: false,
+      // css预设器配置项
+      loaderOptions: {
+        // 配置全局样式变量
+        // https://cli.vuejs.org/zh/guide/css.html
+        sass: {
+          // 引入全局变量样式
+          // 注意：在 sass-loader v7 中，这个选项名是 "data"
+          data: `
+                @import "@/assets/styles/variables.scss";
+                `
+        }
+
+      }
+    }
+
+
+
+    ----------------------
+
+
+     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+        'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+        'space-before-function-paren': 0,
+        'no-trailing-spaces': 0,
+
+-------------------------------
+husky 和 lint-staged 插件组合，在git commit前 进行eslint 检查
+
+---------------------------------------------------------------
+
+"dependencies": {
+    "@tinymce/tinymce-vue": "3.0.1",
+    "core-js": "^3.6.4",
+    "lodash": "^4.17.11",
+    "v-charts": "1.19.0",
+    "axios": "0.18.1",
+    "clipboard": "2.0.4",
+    "echarts": "4.2.1",
+    "element-ui": "2.12.0",
+    "file-saver": "1.3.8",
+    "js-cookie": "2.2.0",
+    "normalize.css": "7.0.0",
+    "nprogress": "0.2.0",
+    "path-to-regexp": "2.4.0",
+    "screenfull": "4.2.0",
+    "vue": "2.6.10",
+    "vue-count-to": "1.0.13",
+    "vue-router": "3.0.2",
+    "vuex": "3.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.0.0",
+    "@babel/register": "7.0.0",
+    "@vue/cli-plugin-babel": "^4.3.0",
+    "@vue/cli-plugin-eslint": "^4.3.0",
+    "@vue/cli-plugin-unit-jest": "3.5.3",
+    "@vue/cli-service": "3.5.3",
+    "@vue/test-utils": "1.0.0-beta.29",
+    "@vue/eslint-config-standard": "^5.1.2",
+    "autoprefixer": "^9.5.1",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "10.0.1",
+    "babel-jest": "23.6.0",
+    "babel-plugin-component": "^1.1.1",
+    "eslint": "5.15.3",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-vue": "5.2.2",
+    "html-webpack-plugin": "3.2.0",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.1.0",
+    "script-ext-html-webpack-plugin": "2.1.3",
+    "script-loader": "0.7.2",
+    "svg-sprite-loader": "4.1.3",
+    "svgo": "1.2.0",
+    "vue-template-compiler": "2.6.10"
+  }

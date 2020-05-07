@@ -48,6 +48,23 @@ module.exports = {
     // 移除 preload 插件
     config.plugins.delete('prefetch')
 
+    // set svg-sprite-loader
+    config.module
+      .rule('svg')
+      .exclude.add(resolve('src/assets/icons'))
+      .end()
+    config.module
+      .rule('icons')
+      .test(/\.svg$/)
+      .include.add(resolve('src/assets/icons'))
+      .end()
+      .use('svg-sprite-loader')
+      .loader('svg-sprite-loader')
+      .options({
+        symbolId: 'icon-[name]'
+      })
+      .end()
+
     // set preserveWhitespace
     config.module
       .rule('vue')
@@ -114,41 +131,24 @@ module.exports = {
     // 配置跨域,可以用来使用mock,如果不想使用可以屏蔽下面部分
     proxy: {
       '/api': { // 代理api
-        target: 'http://localhost:9527', // --------代理服务器api地址
-        ws: true, // proxy启用websockets
+        target: 'http://192.168.2.122:8080', // --------代理服务器api地址
+        ws: false, // proxy启用websockets
         changOrigin: true, // 是否跨域
         // 重写路径
         pathRewrite: {
-          '^/api': '/mock'
+          '^/api': ''
         }
         // 然后你就可以在代码中使用 /api 来代替http://localhost:9527/mock啦
+      },
+      '/imgApi': {
+        target: 'http://192.168.2.125:8888',
+        ws: false, // proxy启用websockets
+        changOrigin: true, // 是否跨域
+        // 重写路径
+        pathRewrite: {
+          '^/imgApi': ''
+        }
       }
-    }
-  },
-  css: {
-    // 项目package.json查看@vue/cli-service版本号进行配置
-    // v3用modules v4用requireModuleExtension
-    // modules: false,
-    // https://github.com/vuejs/vue-cli/blob/dev/docs/zh/guide/css.md#css-modules
-    // 如果你想去掉文件名中的 .module，可以设置 vue.config.js 中的 css.requireModuleExtension 为 false
-    requireModuleExtension: false,
-    // 将组件内的 CSS 提取到一个单独的 CSS 文件 (只用在生产环境中)
-    // 是否使用css分离插件 ExtractTextPlugin
-    extract: true, // Default: 生产环境下是 true，开发环境下是 false
-    // 开启 CSS source maps?
-    sourceMap: false,
-    // css预设器配置项
-    loaderOptions: {
-      // 配置全局样式变量
-      // https://cli.vuejs.org/zh/guide/css.html
-      sass: {
-        // 引入全局变量样式
-        // 注意：在 sass-loader v7 中，这个选项名是 "data"
-        data: `
-              @import "@/assets/style/variables.scss";
-              `
-      }
-
     }
   }
 }
